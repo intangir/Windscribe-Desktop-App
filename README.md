@@ -168,7 +168,8 @@ The repository contains Dockerfile to simplify building process. Skip all the ot
 ```
 - Build all the dependencies:
 ```bash
-  for i in qt wireguard wstunnel; do sudo docker run --rm -v .:/w ws-builder /bin/bash -c "cd /w/tools/deps/ && ./install_$i"; done
+  for i in qt wstunnel; do sudo docker run --rm -v .:/w ws-builder /bin/bash -c "cd /w/tools/deps/ && ./install_$i"; done
+  sudo docker run --rm -v .:/w ws-builder /bin/bash -c "git config --global --add safe.directory /w && cd /w/tools/deps/ && ./install_wireguard"
 ```
 - Build the application:
 ```bash
